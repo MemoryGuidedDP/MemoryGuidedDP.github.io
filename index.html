@@ -118,6 +118,70 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robot manipulation has made significant progress with the introduction of diffusion policy, which improves upon traditional behavior cloning by denoising actions sampled from Gaussian noise, conditioned on observations (images and states).
+          </p>
+          <p>
+            While effective, diffusion policies can struggle in long-horizon or repetitive tasks. In long-horizon settings, they can suffer from cumulative errors that lead to divergence. In repetitive tasks, they may face ambiguity in action prediction due to similar observation patterns.
+          </p>
+          <p>
+            To address these limitations, we propose a novel method called <strong>Memory-Guided Diffusion Policy (MGDP)</strong>. MGDP augments the diffusion policy with a separate neural network that extracts keyframes from the task execution to serve as memory guidance.
+          </p>
+          <p>
+            Our key insight is that capturing and conditioning on keyframes provides additional temporal context, which helps stabilize the training process and resolve ambiguities in repetitive scenarios. We validate our approach on real-world robot manipulation tasks and provide accompanying video demonstrations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">MGDP Network Architecture</h2>
+
+    <div class="columns is-vcentered">
+      <!-- Image Column -->
+      <div class="column is-half">
+        <figure class="image">
+          <img src="./static/images/network_v2.png" alt="MGDP Network Diagram">
+        </figure>
+      </div>
+
+      <!-- Description Column -->
+      <div class="column is-half content">
+        <p>
+          The middle panel shows the <strong>MGDP pipeline</strong>: the keyframe classifier
+          $\varphi_\theta(\mathbf{O})$ decides whether to update memory based on the current observation.
+        </p>
+        <p>
+          The diffusion policy $\varepsilon_\theta(\mathbf{A}, \mathbf{O}, \mathbf{M}, k)$ then uses the observation, memory,
+          and timestep to predict the next action.
+        </p>
+        <p>
+          The left panel illustrates the modified diffusion model with a transformer that performs cross-attention over
+          observation, memory, and action embeddings.
+        </p>
+        <p>
+          The right panel details the keyframe classifier, which encodes gripper and image inputs via an MLP and ViT,
+          and updates a fixed-length memory queue accordingly.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="hero is-light is-small">
   <div class="hero-body">
@@ -162,39 +226,91 @@
 </section>
 
 
+
+
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Robot manipulation has made significant progress with the introduction of diffusion policy, which improves upon traditional behavior cloning by denoising actions sampled from Gaussian noise, conditioned on observations (images and states).
-          </p>
-          <p>
-            While effective, diffusion policies can struggle in long-horizon or repetitive tasks. In long-horizon settings, they can suffer from cumulative errors that lead to divergence. In repetitive tasks, they may face ambiguity in action prediction due to similar observation patterns.
-          </p>
-          <p>
-            To address these limitations, we propose a novel method called <strong>Memory-Guided Diffusion Policy (MGDP)</strong>. MGDP augments the diffusion policy with a separate neural network that extracts keyframes from the task execution to serve as memory guidance.
-          </p>
-          <p>
-            Our key insight is that capturing and conditioning on keyframes provides additional temporal context, which helps stabilize the training process and resolve ambiguities in repetitive scenarios. We validate our approach on real-world robot manipulation tasks and provide accompanying video demonstrations.
-          </p>
-        </div>
-      </div>
+    <h2 class="title is-3 has-text-centered">Success Rate on Packaging Task</h2>
+    <p class="has-text-centered">
+      Success rate (%) of different methods on the repetitive packaging task over 20 trials. 
+      The task is considered successful only when two items are separated into two boxes.
+    </p>
+
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-hoverable is-fullwidth has-text-centered">
+        <thead>
+          <tr>
+            <th></th>
+            <th><strong>ACT</strong></th>
+            <th><strong>Diffusion Policy</strong></th>
+            <th><strong>Waypoint-based (AWE)</strong></th>
+            <th><strong>MGDP (Ours)</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><strong>2 boxes Packaging</strong></th>
+            <td>20</td>
+            <td>45</td>
+            <td>55</td>
+            <td style="color: red;"><strong>90</strong></td>
+          </tr>
+          <tr>
+            <th><strong>3 boxes Packaging</strong></th>
+            <td>0</td>
+            <td>0</td>
+            <td>10</td>
+            <td style="color: red;"><strong>65</strong></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <!--/ Abstract. -->
+  </div>
+</section>
 
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Success Rate on Coffee Making Task</h2>
+    <p class="has-text-centered">
+      Success rate (%) of different methods on the long-horizon coffee making task.
+    </p>
+
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-hoverable is-fullwidth has-text-centered">
+        <thead>
+          <tr>
+            <th></th>
+            <th><strong>ACT</strong></th>
+            <th><strong>Diffusion Policy</strong></th>
+            <th><strong>AWE</strong></th>
+            <th><strong>MGDP (Ours)</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><strong>Coffee Making (Full)</strong></th>
+            <td>10</td>
+            <td>15</td>
+            <td>35</td>
+            <td style="color: red;"><strong>85</strong></td>
+          </tr>
+          <tr>
+            <th><strong>Coffee Making (Pre-pressing)</strong></th>
+            <td>90</td>
+            <td>90</td>
+            <td>95</td>
+            <td style="color: red;"><strong>100</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
 
 
-
-
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{park2021nerfies,
@@ -204,7 +320,7 @@
   year      = {2021},
 }</code></pre>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">

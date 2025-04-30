@@ -1,2 +1,2 @@
-# github.io
-Memory Guided Diffusion Policy Project Webpage
+# MGDP.github.io
+Webpage for MGDP

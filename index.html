@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Memory Guided Diffusion Policy for Robot Learning.">
+  <meta name="keywords" content="MGDP, Diffusion Policy, Robotics, Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MGDP: Memory Guided Diffusion Policy for Robot Learning</title>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/apple-touch-icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MGDP: Memory Guided Diffusion Policy for Robot Learning</h1>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Yichen Xie</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Alexandre Li Hao Yao</a><sup>2</sup>,</span>
+            <span class="author-block">
+              Wende Xie</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Chien-Ming Huang</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Johns Hopkins University,</span>
+            <span class="author-block"><sup>2</sup>Cowarobot Technology Co</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF -->
+              <span class="link-block">
+                <span class="button is-normal is-rounded is-dark" style="cursor: default;">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </span>
+              </span>
+          
+              <!-- arXiv -->
+              <span class="link-block">
+                <span class="button is-normal is-rounded is-dark" style="cursor: default;">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </span>
+              </span>
+          
+              <!-- Code -->
+              <span class="link-block">
+                <span class="button is-normal is-rounded is-dark" style="cursor: default;">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </span>
+              </span>
+          
+              <!-- Data -->
+              <span class="link-block">
+                <span class="button is-normal is-rounded is-dark" style="cursor: default;">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </span>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/MGDP_success-VEED.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">MGDP</span> empowers repetitive and long-horizon robot manipulation with memory-driven precision.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <!-- Title 1: Packaging Problem -->
+      <h2 class="title is-3 has-text-centered">Packaging Problem</h2>
+      <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/MGDP_success-VEED.mp4" type="video/mp4">
+          </video>
+          <p><strong>MGDP Success</strong></p>
+        </div>
+        <div class="column is-half has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/failure_Diffuison-VEED.mp4" type="video/mp4">
+          </video>
+          <p><strong>Diffusion Failure</strong></p>
+        </div>
+      </div>
+
+      <!-- Title 2: Coffee Making -->
+      <h2 class="title is-3 has-text-centered">Coffee Making</h2>
+      <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/coffee_success.mp4" type="video/mp4">
+          </video>
+          <p><strong>MGDP Success</strong></p>
+        </div>
+        <div class="column is-half has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/coffee_faliure.mp4" type="video/mp4">
+          </video>
+          <p><strong>Diffusion Failure</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robot manipulation has made significant progress with the introduction of diffusion policy, which improves upon traditional behavior cloning by denoising actions sampled from Gaussian noise, conditioned on observations (images and states).
+          </p>
+          <p>
+            While effective, diffusion policies can struggle in long-horizon or repetitive tasks. In long-horizon settings, they can suffer from cumulative errors that lead to divergence. In repetitive tasks, they may face ambiguity in action prediction due to similar observation patterns.
+          </p>
+          <p>
+            To address these limitations, we propose a novel method called <strong>Memory-Guided Diffusion Policy (MGDP)</strong>. MGDP augments the diffusion policy with a separate neural network that extracts keyframes from the task execution to serve as memory guidance.
+          </p>
+          <p>
+            Our key insight is that capturing and conditioning on keyframes provides additional temporal context, which helps stabilize the training process and resolve ambiguities in repetitive scenarios. We validate our approach on real-world robot manipulation tasks and provide accompanying video demonstrations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+  </div>
+</section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!-- PDF icon without link -->
+      <span class="icon-link" style="cursor: default;">
+        <i class="fas fa-file-pdf"></i>
+      </span>
+      <!-- GitHub icon without link -->
+      <span class="icon-link" style="cursor: default;">
+        <i class="fab fa-github"></i>
+      </span>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a 
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+              Creative Commons Attribution-ShareAlike 4.0 International License
+            </a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

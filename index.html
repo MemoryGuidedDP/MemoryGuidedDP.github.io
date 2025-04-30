@@ -25,6 +25,13 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 
@@ -162,12 +169,7 @@
       <!-- Description Column -->
       <div class="column is-half content">
         <p>
-          The middle panel shows the <strong>MGDP pipeline</strong>: the keyframe classifier
-          $\varphi_\theta(\mathbf{O})$ decides whether to update memory based on the current observation.
-        </p>
-        <p>
-          The diffusion policy $\varepsilon_\theta(\mathbf{A}, \mathbf{O}, \mathbf{M}, k)$ then uses the observation, memory,
-          and timestep to predict the next action.
+          The middle panel shows the <strong>MGDP pipeline</strong>: the keyframe classifier decides whether to update memory based on the current observation. The diffusion policy then uses the observation, memory,and timestep to predict the next action.
         </p>
         <p>
           The left panel illustrates the modified diffusion model with a transformer that performs cross-attention over
